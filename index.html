@@ -1,0 +1,1159 @@
+!DOCTYPE html>
+html lang="en"
+head>
+  meta charset="UTF-8">
+  meta name="viewport" content="width=device-width, initial-scale=1.0">
+  title>NOIR BARBER STUDIO - Precision in every detail.title>
+  link rel="preconnect" href="https://fonts.googleapis.com">
+  link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E0C068;
+      --gold-dark: #A68A2E;
+      --charcoal: #1A1A1A;
+      --charcoal-deep: #0D0D0D;
+      --charcoal-light: #2A2A2A;
+      --white: #F5F5F5;
+      --white-soft: #E0E0E0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--charcoal-deep);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    a { color: var(--gold); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--gold-light); }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(13, 13, 13, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    nav .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    nav .logo span { color: var(--white); font-weight: 400; }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--white-soft);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--charcoal-deep) !important;
+      padding: 10px 24px;
+      border-radius: 2px;
+      font-weight: 700 !important;
+      letter-spacing: 1px;
+      transition: background 0.3s, transform 0.3s !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold-light); color: var(--charcoal-deep) !important; transform: translateY(-1px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, rgba(13,13,13,0.85), rgba(26,26,26,0.75)),
+                  url('https://images.unsplash.com/photo-1585747860075-d65e1e3e05b9?w=1920&q=80') center/cover no-repeat;
+      text-align: center;
+      padding: 120px 24px 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at center, transparent 0%, var(--charcoal-deep) 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero-content .tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--gold);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      color: var(--white);
+      margin-bottom: 24px;
+      font-weight: 900;
+    }
+
+    .hero-content h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      color: var(--white-soft);
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal-deep);
+      padding: 16px 48px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid var(--gold);
+      border-radius: 2px;
+      transition: all 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-gold:hover {
+      background: transparent;
+      color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.2);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--gold);
+      padding: 16px 48px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid var(--gold);
+      border-radius: 2px;
+      transition: all 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      margin-left: 16px;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--charcoal-deep);
+      transform: translateY(-2px);
+    }
+
+    /* ===== SECTION STYLES ===== */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header .overline {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      color: var(--white-soft);
+      opacity: 0.7;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 20px auto;
+    }
+
+    /* ===== SERVICES ===== */
+    .services { background: var(--charcoal); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .service-card {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      border-radius: 4px;
+      padding: 48px 36px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border-color: rgba(201, 168, 76, 0.3);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      font-size: 1.8rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .service-card .price {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .service-card p {
+      color: var(--white-soft);
+      opacity: 0.8;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ===== STORY / ABOUT ===== */
+    .story {
+      background: var(--charcoal-deep);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .story-image {
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .story-image:hover img { transform: scale(1.05); }
+
+    .story-image::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 120px;
+      height: 120px;
+      border: 3px solid var(--gold);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .story-content h2 {
+      font-size: 2.5rem;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .story-content h2 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .story-content p {
+      color: var(--white-soft);
+      opacity: 0.85;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .story-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .stat h4 {
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .stat p {
+      font-size: 0.85rem;
+      color: var(--white-soft);
+      opacity: 0.7;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery { background: var(--charcoal); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 250px);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 4px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .gallery-item:hover img { transform: scale(1.1); }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 50%, rgba(13,13,13,0.6));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover::after { opacity: 1; }
+
+    .gallery-item:nth-child(1) { grid-column: span 2; }
+    .gallery-item:nth-child(4) { grid-column: span 2; }
+
+    /* ===== REVIEWS ===== */
+    .reviews {
+      background: var(--charcoal-deep);
+      overflow: hidden;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .review-card {
+      min-width: 100%;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 1.3rem;
+      margin-bottom: 24px;
+      letter-spacing: 4px;
+    }
+
+    .review-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      font-style: italic;
+      opacity: 0.95;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .review-author img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+
+    .review-author-info p {
+      font-weight: 700;
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    .review-author-info span {
+      font-size: 0.85rem;
+      color: var(--gold);
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .carousel-btn {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-btn:hover {
+      background: var(--gold);
+      color: var(--charcoal-deep);
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+
+    .carousel-dot.active { background: var(--gold); }
+
+    /* ===== CTA ===== */
+    .cta {
+      background: linear-gradient(135deg, var(--charcoal), var(--charcoal-deep));
+      text-align: center;
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&q=60') center/cover no-repeat;
+      opacity: 0.1;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: var(--white-soft);
+      opacity: 0.8;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .cta .btn-gold {
+      font-size: 1.05rem;
+      padding: 18px 56px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--charcoal-deep);
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      color: var(--white-soft);
+      opacity: 0.7;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: var(--white-soft);
+      opacity: 0.7;
+      font-size: 0.9rem;
+      transition: opacity 0.3s, color 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    .footer-bottom p {
+      color: var(--white-soft);
+      opacity: 0.5;
+      font-size: 0.85rem;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .services-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .story-image img { height: 350px; }
+      .story-image::after { display: none; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 200px); }
+      .gallery-item:nth-child(1) { grid-column: span 2; }
+      .gallery-item:nth-child(4) { grid-column: span 1; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(13, 13, 13, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+        gap: 24px;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(201, 168, 76, 0.15);
+      }
+
+      .nav-links.open { right: 0; }
+      .hamburger { display: flex; z-index: 1001; }
+
+      .hero { padding: 140px 24px 80px; }
+      .btn-outline { margin-left: 0; margin-top: 16px; display: block; }
+
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .gallery-item:nth-child(1) { grid-column: span 1; }
+      .gallery-item { height: 250px; }
+
+      .review-card { padding: 32px 16px; }
+      .review-card blockquote { font-size: 1.1rem; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      section { padding: 72px 0; }
+    }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      .carousel-track { transition: none; }
+      .gallery-item img { transition: none; }
+      .story-image img { transition: none; }
+    }
+  /style>
+/head>
+body>
+
+  !-- NAVIGATION -->
+  nav role="navigation" aria-label="Main navigation">
+    div class="nav-container">
+      a href="#" class="logo">NOIR/span> BARBER studio>
+      ul class="nav-links" id="navLinks">
+        li> a href="#services">Servicesa>li>
+        li> a href="#story">Our Storya>li>
+        li> a href="#gallery">Gallerya>li>
+        li> a href="#reviews">Reviewsa>li>
+        li> a href="#contact" class="nav-cta">Book Nowa>li>
+      ul>
+      button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        span>span>
+        span>span>
+        span>span>
+      button>
+    div>
+  nav>
+
+  !-- HERO -->
+  section class="hero" id="home">
+    div class="hero-content">
+      p class="tagline">Luxury Grooming Experiencep>
+      h1>Precision in every em>detail>.em>h1>
+      p>Where timeless craftsmanship meets modern style. Experience the art of grooming at NOIR Barber Studio, where every cut, every shave, and every service is a masterpiece in motion.p>
+      div>
+        a href="mailto:book@noirbarberstudio.com?subject=Appointment%20Request" class="btn-gold">Book Appointmenta>
+        a href="#services" class="btn-outline">Explore Servicesa>
+      div>
+    div>
+  section>
+
+  !-- SERVICES -->
+  section class="services" id="services">
+    div class="container">
+      div class="section-header reveal">
+        p class="overline">What We Offerp>
+        h2>Our Signature Servicesh2>
+        div class="divider">div>
+        p>Each service is tailored to perfection, using premium products and time-honored techniques.p>
+      div>
+      div class="services-grid">
+        article class="service-card reveal">
+          div class="service-icon">✂️div>
+          h3>Signature Cuth3>
+          p class="price">₹700p>
+          p>A meticulous haircut crafted to complement your face shape and personal style. Includes consultation, shampoo, precision cut, and styling.finish>
+        article>
+        article class="service-card reveal">
+          div class="service-icon">🪒div>
+          h3>Beard Sculpth3>
+          p class="price">₹450p>
+          p>Precision beard grooming with hot towel treatment, expert shaping, and conditioning to achieve a flawlessly sculpted look.finish>
+        article>
+        article class="service-card reveal">
+          div class="service-icon">💈div>
+          h3>Cut & Ritualh3>
+          p class="price">₹1,100p>
+          p>The complete NOIR experience. Signature cut plus beard sculpt, hot towel treatment, scalp massage, and premium styling.finish>
+        article>
+      div>
+    div>
+  section>
+
+  !-- STORY -->
+  section class="story" id="story">
+    div class="container">
+      div class="story-grid">
+        div class="story-image reveal">
+          img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&q=80" alt="Barber at work" loading="lazy">
+        div>
+        div class="story-content reveal">
+          p class="overline" style="color:var(--gold);font-size:0.85rem;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;font-weight:500;">Our Storyp>
+          h2>Crafted with em>passion,>em> defined by precision.h2>
+          p>Founded with a singular vision — to redefine the barbering experience — NOIR Barber Studio is where tradition meets modern artistry. Every detail, from the moment you walk through our doors, is designed to elevate your grooming routine into a ritual of self-care.p>
+          p>Our master barbers bring decades of combined experience, blending old-world techniques with contemporary styles. We don't just cut hair — we sculpt confidence, one precise stroke at a time.p>
+          div class="story-stats">
+            div class="stat">
+              h4>12+h4>
+              p>Years Experiencep>
+            div>
+            div class="stat">
+              h4>5K+h4>
+              p>Happy Clientsp>
+            div>
+            div class="stat">
+              h4>15+h4>
+              p>Awards Wonp>
+            div>
+          div>
+        div>
+      div>
+    div>
+  section>
+
+  !-- GALLERY -->
+  section class="gallery" id="gallery">
+    div class="container">
+      div class="section-header reveal">
+        p class="overline">Our Workp>
+        h2>The Galleryh2>
+        div class="divider">div>
+        p>A glimpse into the artistry and precision that defines the NOIR experience.p>
+      div>
+      div class="gallery-grid">
+        div class="gallery-item reveal">
+          img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80" alt="Barber shop interior" loading="lazy">
+        div>
+        div class="gallery-item reveal">
+          img src="https://images.unsplash.com/photo-1599351431613-18ef1fdd27e1?w=600&q=80" alt="Haircut in progress" loading="lazy">
+        div>
+        div class="gallery-item reveal">
+          img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80" alt="Barber tools" loading="lazy">
+        div>
+        div class="gallery-item reveal">
+          img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=800&q=80" alt="Styling result" loading="lazy">
+        div>
+        div class="gallery-item reveal">
+          img src="https://images.unsplash.com/photo-1585747860075-d65e1e3e05b9?w=600&q=80" alt="Barber shop ambiance" loading="lazy">
+        div>
+        div class="gallery-item reveal">
+          img src="https://images.unsplash.com/photo-1596728325488-58c87691e9af?w=600&q=80" alt="Precision shave" loading="lazy">
+        div>
+      div>
+    div>
+  section>
+
+  !-- REVIEWS -->
+  section class="reviews" id="reviews">
+    div class="container">
+      div class="section-header reveal">
+        p class="overline">Client Testimonialsp>
+        h2>What They Sayh2>
+        div class="divider">div>
+      div>
+      div class="carousel-container reveal">
+        div class="carousel-track" id="carouselTrack">
+          div class="review-card">
+            div class="review-stars">★★★★★div>
+            blockquote>"NOIR transformed my grooming routine completely. The attention to detail is unmatched — every visit feels like a premium experience. My go-to studio for everything grooming-related."blockquote>
+            div class="review-author">
+              img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Arjun Mehta" loading="lazy">
+              div class="review-author-info">
+                p>Arjun Mehtap>
+                span>Regular Clientp>
+              div>
+            div>
+          div>
+          div class="review-card">
+            div class="review-stars">★★★★★div>
+            blockquote>"The Cut & Ritual is pure indulgence. From the warm towel treatment to the precision fade — these guys are true artists. Worth every rupee and then some."blockquote>
+            div class="review-author">
+              img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Vikram Singh" loading="lazy">
+              div class="review-author-info">
+                p>Vikram Singhp>
+                span>VIP Memberp>
+              div>
+            div>
+          div>
+          div class="review-card">
+            div class="review-stars">★★★★★div>
+            blockquote>"Finally found a place that understands what I want. The consultation beforehand, the skill during the cut, and the final result — absolute perfection. NOIR is in a league of its own."blockquote>
+            div class="review-author">
+              img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Rahul Desai" loading="lazy">
+              div class="review-author-info">
+                p>Rahul Desaip>
+                span>First-time Visitorp>
+              div>
+            div>
+          div>
+          div class="review-card">
+            div class="review-stars">★★★★★div>
+            blockquote>"I've been to barbershops across three continents, and NOIR ranks among the best. The ambiance, the expertise, the results — everything screams luxury."blockquote>
+            div class="review-author">
+              img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" alt="Karan Malhotra" loading="lazy">
+              div class="review-author-info">
+                p>Karan Malhotrap>
+                span>Loyal Clientp>
+              div>
+            div>
+          div>
+        div>
+        div class="carousel-controls">
+          button class="carousel-btn" id="prevBtn" aria-label="Previous review">◄button>
+          button class="carousel-btn" id="nextBtn" aria-label="Next review">►button>
+        div>
+        div class="carousel-dots" id="carouselDots">
+          button class="carousel-dot active" data-index="0" aria-label="Review 1">button>
+          button class="carousel-dot" data-index="1" aria-label="Review 2">button>
+          button class="carousel-dot" data-index="2" aria-label="Review 3">button>
+          button class="carousel-dot" data-index="3" aria-label="Review 4">button>
+        div>
+      div>
+    div>
+  section>
+
+  !-- CTA -->
+  section class="cta" id="contact">
+    div class="cta-content container reveal">
+      h2>Ready for Your Transformation?h2>
+      p>Book your appointment today and experience the NOIR difference. Precision, luxury, and confidence — delivered with every visit.p>
+      a href="mailto:book@noirbarberstudio.com?subject=Appointment%20Request&body=Hello%20NOIR%20Barber%20Studio%2C%0A%0AI%20would%20like%20to%20book%20an%20appointment.%0A%0APreferred%20Service%3A%0APreferred%20Date%3A%0APreferred%20Time%3A%0A%0AThank%20you." class="btn-gold">Book Your Appointmenta>
+    div>
+  section>
+
+  !-- FOOTER -->
+  footer>
+    div class="container">
+      div class="footer-grid">
+        div class="footer-brand">
+          span class="logo">NOIR BARBER STUDIOspan>
+          p>Where precision meets luxury. Experience the art of grooming at its finest. Every visit is a ritual, every cut a masterpiece.p>
+        div>
+        div class="footer-col">
+          h4>Quick Linksh4>
+          ul>
+            li> a href="#services">Servicesa>li>
+            li> a href="#story">Our Storya>li>
+            li> a href="#gallery">Gallerya>li>
+            li> a href="#reviews">Reviewsa>li>
+            li> a href="#contact">Book Nowa>li>
+          ul>
+        div>
+        div class="footer-col">
+          h4>Servicesh4>
+          ul>
+            li> a href="#services">Signature Cut — ₹700a>li>
+            li> a href="#services">Beard Sculpt — ₹450a>li>
+            li> a href="#services">Cut & Ritual — ₹1,100a>li>
+          ul>
+        div>
+        div class="footer-col">
+          h4>Get in Touchh4>
+          ul>
+            li> a href="mailto:book@noirbarberstudio.com">book@noirbarberstudio.coma>li>
+            li> a href="tel:+919876543210">+91 98765 43210a>li>
+            li> p style="color:var(--white-soft);opacity:0.7;font-size:0.9rem;">12, Heritage Lane>a>li>
+            li> p style="color:var(--white-soft);opacity:0.7;font-size:0.9rem;">Mumbai, Maharashtra 400001a>li>
+          ul>
+        div>
+      div>
+      div class="footer-bottom">
+        p>&copy; 2026 NOIR Barber Studio. All rights reserved.p>
+      div>
+    div>
+  footer>
+
+  !-- JAVASCRIPT -->
+  script>
+    (function() {
+      'use strict';
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      !-- MOBILE MENU --
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          this.classList.toggle('active');
+          navLinks.classList.toggle('open');
+        });
+
+        navLinks.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+          });
+        });
+      }
+
+      !-- SCROLL REVEAL --
+      const reveals = document.querySelectorAll('.reveal');
+
+      function checkReveal() {
+        reveals.forEach(function(el) {
+          const windowHeight = window.innerHeight;
+          const elementTop = el.getBoundingClientRect().top;
+          const revealPoint = 100;
+
+          if (elementTop  windowHeight - revealPoint) {
+            el.classList.add('visible');
+          }
+        });
+      }
+
+      if (!prefersReducedMotion) {
+        window.addEventListener('scroll', function() {
+          requestAnimationFrame(checkReveal);
+        });
+        checkReveal();
+      } else {
+        reveals.forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+
+      !-- CAROUSEL --
+      const track = document.getElementById('carouselTrack');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const totalSlides = track ? track.children.length : 0;
+      let currentSlide = 0;
+      let autoSlideInterval;
+
+      function goToSlide(index) {
+        if (!track) return;
+        if (index >= totalSlides) index = 0;
+        if (index  0) index = totalSlides - 1;
+        currentSlide = index;
+        track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', function() {
+          goToSlide(currentSlide - 1);
+          resetAutoSlide();
+        });
+
+        nextBtn.addEventListener('click', function() {
+          goToSlide(currentSlide + 1);
+          resetAutoSlide();
+        });
+      }
+
+      if (dots.length) {
+        dots.forEach(function(dot) {
+          dot.addEventListener('click', function() {
+            goToSlide(parseInt(this.getAttribute('data-index')));
+            resetAutoSlide();
+          });
+        });
+      }
+
+      function startAutoSlide() {
+        if (prefersReducedMotion) return;
+        autoSlideInterval = setInterval(function() {
+          goToSlide(currentSlide + 1);
+        }, 5000);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      startAutoSlide();
+
+      !-- STICKY NAV SHADOW --
+      var nav = document.querySelector('nav');
+      if (nav) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+            nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.5)';
+          } else {
+            nav.style.boxShadow = 'none';
+          }
+        });
+      }
+
+    })();
+  script>
+/body>
+/html>
